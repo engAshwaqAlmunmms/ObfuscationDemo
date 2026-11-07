@@ -7,18 +7,29 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+class UserAuthenticationManager {
+
+    func validateUser() -> Bool {
+        let userName = "testUser"
+        let isAuthenticated = true
+
+        print("User: \(userName)")
+
+        return isAuthenticated
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView: View {
+
+    var body: some View {
+        VStack {
+            Text("Obfuscation Lab")
+                .font(.title)
+
+            Button("Validate User") {
+                let manager = UserAuthenticationManager()
+                print(manager.validateUser())
+            }
+        }
+    }
 }
